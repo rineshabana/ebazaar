@@ -1,0 +1,36 @@
+CommitMsg:
+  CapitalizedSubject:
+    enabled: true
+    on_warn: fail
+  EmptyMessage:
+    enabled: true
+
+  TrailingPeriod:
+    enabled: true
+
+  TextWidth:
+    enabled: false
+
+PreCommit:
+  ALL:
+    on_warn: fail
+
+  AuthorEmail:
+    enabled: true
+
+  AuthorName:
+    enabled: true
+
+  MergeConflicts:
+    enabled: true
+    
+  YamlSyntax:
+    enabled: true
+    
+  BundleCheck:
+    enabled: true
+
+  RuboCop:
+    enabled: true
+    on_warn: fail # Treat all warnings as failures
+    problem_on_unmodified_line: ignore # run RuboCop only on modified code
