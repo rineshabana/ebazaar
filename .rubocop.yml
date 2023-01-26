@@ -13,7 +13,7 @@ AllCops:
     - Gemfile
     - Rakefile
     - config.ru
-
+  NewCops: enable
 require:
   - rubocop-rails
 
