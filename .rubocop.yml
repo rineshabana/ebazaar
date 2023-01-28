@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - db/migrate/**/*
     - db/schema.rb
+    - db/seeds.rb
     - config/**/*
     - script/**/*
     - bin/**/*
@@ -13,7 +14,7 @@ AllCops:
     - Gemfile
     - Rakefile
     - config.ru
-
+  NewCops: enable
 require:
   - rubocop-rails
 
