@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_26_102440) do
+ActiveRecord::Schema.define(version: 2023_01_26_135431) do
+
+  create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.bigint "user_profile_id"
+    t.string "address_line1"
+    t.string "address_line2"
+    t.string "address_line3"
+    t.string "city"
+    t.string "state"
+    t.string "pincode"
+    t.string "country_code"
+    t.string "contact_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_profile_id"], name: "index_user_addresses_on_user_profile_id"
+  end
 
   create_table "user_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "user_id"
@@ -43,5 +58,6 @@ ActiveRecord::Schema.define(version: 2023_01_26_102440) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_addresses", "user_profiles"
   add_foreign_key "user_profiles", "users"
 end
