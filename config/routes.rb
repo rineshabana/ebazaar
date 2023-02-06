@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'user_address/index'
+  get 'user_address/new'
+  post 'user_address/create'
+  get 'user_address/:id/edit', to: 'user_address#edit', as: 'edit_user_address'
+  patch 'user_address/update'
+  delete 'user_address/:id/destroy', to: 'user_address#destroy', as: 'destroy_user_address'
   get 'user_profile/add'
   get 'user_profile/edit'
   get 'user_profile/show', as: 'profile_show'
