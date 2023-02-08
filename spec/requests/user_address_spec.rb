@@ -31,7 +31,7 @@ RSpec.describe 'UserAddresses', type: :request do
     end
   end
 
-  describe '' do
+  describe 'create, update and destroy' do
     before do
       @address = create(:user_address, user_profile: u.user_profile)
     end

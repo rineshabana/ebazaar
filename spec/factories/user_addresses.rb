@@ -8,6 +8,6 @@ FactoryBot.define do
     state { 'MyString' }
     pincode { '1' }
     country_code { '1' }
-    contact_number { '1' }
+    contact_number { '1234567890' }
   end
 end

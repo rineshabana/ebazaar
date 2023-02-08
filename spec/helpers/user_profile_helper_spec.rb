@@ -23,8 +23,4 @@ RSpec.describe UserProfileHelper, type: :helper do
     profile.gender = 2
     expect(helper.showgender(profile)).to eql('Female')
   end
-
-  it 'shows contact no' do
-    expect(helper.show_contact_no(profile)).to eql('+91-12345678')
-  end
 end

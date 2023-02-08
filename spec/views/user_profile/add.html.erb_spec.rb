@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# rubocop:disable Lint/EmptyBlock
 RSpec.describe 'user_profile/add.html.erb', type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
 end
+# rubocop:enable Lint/EmptyBlock
