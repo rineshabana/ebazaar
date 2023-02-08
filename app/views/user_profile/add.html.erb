@@ -1,0 +1,7 @@
+<div class = 'card'>
+    <div class = 'card-body'> 
+     <div class = 'card-title'><h2>Please Create your profile</h2></div>
+      <hr>
+         <%= render partial: 'form', locals: {obj: @profile, routing: {controller: :user_profile, action: :create}} %>
+    </div>
+</div>    
