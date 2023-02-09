@@ -39,8 +39,7 @@ gem 'rubocop'
 gem 'rubocop-rails'
 gem 'overcommit'
 gem 'devise', '~> 4.8', '>= 4.8.1'
-gem 'bootstrap', '~> 4.6', '>= 4.6.2'
-gem 'jquery-rails'
+gem 'webpacker', '~> 5.4', '>= 5.4.4'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 
 group :development, :test do
