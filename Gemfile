@@ -10,6 +10,7 @@ gem 'rails', '~> 6.1'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 6.0', '>= 6.0.2'
+gem 'webpacker', '~> 5.4', '>= 5.4.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,8 +41,6 @@ gem 'rubocop'
 gem 'rubocop-rails'
 gem 'overcommit'
 gem 'devise', '~> 4.8', '>= 4.8.1'
-gem 'bootstrap', '~> 4.6', '>= 4.6.2'
-gem 'jquery-rails'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 
 group :development, :test do
