@@ -1,0 +1,14 @@
+<div class="card" id="address-child-<%=addr.id%>">
+    <div class="card-body">
+        <h4 class="card-title"><%= address_number(addr)%></h4>
+        <p class="card-text">Address Line 1 : <%= addr.address_line1%></p>
+        <p class="card-text">Address Line 2 : <%= addr.address_line2%></p>
+        <p class="card-text">Address Line 3 : <%= addr.address_line3%></p>
+        <p class="card-text">City : <%= addr.city%></p>
+        <p class="card-text">State : <%= addr.state%></p>
+        <p class="card-text">Pin Code : <%= addr.pincode%></p>
+        <p class="card-text">Contact Number : <%= show_contact_no(addr)%></p>
+        <%= link_to "Edit", edit_user_address_path(id: addr.id), class: "btn btn-warning", remote: true %>
+        <%= link_to "Delete", destroy_user_address_path(id: addr.id), class: "btn btn-danger", method: :delete, remote: true %>
+    </div>
+</div>

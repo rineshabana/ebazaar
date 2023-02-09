@@ -1,0 +1,2 @@
+$('#address-form').html("");
+$('address-child-home-<%=@address.id%>').html("<%= j render partial: 'address-element', locals:{addr: @address}%>")
