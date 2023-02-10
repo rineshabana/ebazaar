@@ -7,7 +7,7 @@
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
       <%= link_to "Home", root_path, class: "me-3 py-2 text-dark text-decoration-none" %>
       <% if user_signed_in? %>
-        <%= link_to "My Profile", profile_show_path, class: "me-3 py-2 text-dark text-decoration-none" %>
+        <%= link_to "My Profile", profile_show_path, class: "me-3 py-2 text-dark text-decoration-none", remote: true %>
         <%= link_to "My Addresses", user_address_index_path, class: "me-3 py-2 text-dark text-decoration-none", remote: true %>
         <%= link_to "Logout", destroy_user_session_path,method: :delete ,class: "btn btn-outline-danger"  %>
       <% else %>

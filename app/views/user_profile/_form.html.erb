@@ -1,43 +1,43 @@
 
-        <%= form_for(obj,:url => url_for(routing)) do |f| %>
-        <div class='row'>
-            <div class='col-md-6'>
-        
-                 <div class="mb-3">
-                     <%= f.label :first_name %>
-                     <%= f.text_field :first_name, class: "form-control"%>
-                 </div>
+<%= form_for(obj,:url => url_for(routing),remote: true) do |f| %>
+<div class='row'>
+    <div class='col-md-6'>
 
-                 <div class="mb-3">
-                     <%= f.label :middle_name %>
-                     <%= f.text_field :middle_name, class: "form-control"%>
-                 </div>
-
-                 <div class="mb-3">
-                     <%= f.label :last_name %>
-                     <%= f.text_field :last_name, class: "form-control"%>
-                 </div>
-                 <div class="mb-3">
-                     <%= f.label :dob %>
-                     <%= f.date_field :dob, class: "form-control"%>
-                 </div>
-                </div>
-                <div class='col-md-6'>
-                <br>
-                    <div class="mb-3">
-                        <%= f.label :gender %>&nbsp;&nbsp;
-                        <%= f.radio_button :gender, '1' %> Male &nbsp;
-                        <%= f.radio_button :gender, '2' %> Female
-                    </div>
-                    <div class="mb-3">
-                        <%= f.label :country_code %>
-                        <%= f.text_field :country_code, class: "form-control" %>
-                    </div>
-                    <div class="mb-3">
-                        <%= f.label :contact_number %>
-                        <%= f.text_field :contact_number,class: "form-control" %>
-                    </div>
-                        <%= f.submit "Sumbit", class: "btn btn-primary" %>
-                </div>
+            <div class="mb-3">
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name, class: "form-control"%>
             </div>
-        <% end %>
+
+            <div class="mb-3">
+                <%= f.label :middle_name %>
+                <%= f.text_field :middle_name, class: "form-control"%>
+            </div>
+
+            <div class="mb-3">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, class: "form-control"%>
+            </div>
+            <div class="mb-3">
+                <%= f.label :dob %>
+                <%= f.date_field :dob, class: "form-control"%>
+            </div>
+        </div>
+        <div class='col-md-6'>
+        <br>
+            <div class="mb-3">
+                <%= f.label :gender %>&nbsp;&nbsp;
+                <%= f.radio_button :gender, '1' %> Male &nbsp;
+                <%= f.radio_button :gender, '2' %> Female
+            </div>
+            <div class="mb-3">
+                <%= f.label :country_code %>
+                <%= f.text_field :country_code, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= f.label :contact_number %>
+                <%= f.text_field :contact_number,class: "form-control" %>
+            </div>
+                <%= f.submit "Sumbit", class: "btn btn-primary" %>
+        </div>
+    </div>
+<% end %>

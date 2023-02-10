@@ -4,7 +4,7 @@ class UserAddressController < ApplicationController
 
   def index
     @addresses = current_user.user_addresses
-    flash[:notice] = t('create_profile') if current_user.user_profile.nil?
+    flash[:notice] = t('profile.create.message') if current_user.user_profile.nil?
   end
 
   def new

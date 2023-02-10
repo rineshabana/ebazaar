@@ -31,7 +31,14 @@
 
 en:
   hello: "Hello world"
-  create_profile: 'Please Create Your Profile first'
+  profile: 
+    create: 
+      message: 'Please Create Your Profile first'
+      success: 'Profile Created'
+      failure: 'Profile creation failed'
+    update:
+      success: 'Profile Updated Successfully'
+      failure: 'Profile Updation Failed'
   address:
     create:
       success: 'Address Created Successfully'
