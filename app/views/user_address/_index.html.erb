@@ -1,19 +1,6 @@
-<%= link_to 'Create New Address', user_address_new_path, class: 'btn btn-primary w-100'%><br>
+<%= link_to 'Create New Address', user_address_new_path, class: 'btn btn-primary w-100', remote: true%><br>
 <br>
-    <% addresses.each do |address| %>
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title"><%= "Address for #{address.city}" %></h4>
-                    <p class="card-text">Address Line 1 : <%= address.address_line1%></p>
-                    <p class="card-text">Address Line 2 : <%= address.address_line2%></p>
-                    <p class="card-text">Address Line 3 : <%= address.address_line3%></p>
-                    <p class="card-text">City : <%= address.city%></p>
-                    <p class="card-text">State : <%= address.state%></p>
-                    <p class="card-text">Pin Code : <%= address.pincode%></p>
-                    <p class="card-text">Contact Number : <%= show_contact_no(address)%></p>
-                    <%= link_to "Edit", edit_user_address_path(id: address.id), class: "btn btn-warning" %>
-                    <%= link_to "Delete", destroy_user_address_path(id: address.id), class: "btn btn-danger", method: :delete %>
-                </div>
-            </div>
-            <br>
-    <% end %>
+<% addresses.each do |address| %>
+        <%= render partial: 'address-card', locals:{addr:address}%>
+        <br>
+<% end %>

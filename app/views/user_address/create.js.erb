@@ -1,0 +1,8 @@
+<%if flash[:error]%>
+    new Noty({theme:'metroui', timeout: 1000, type: 'error',layout: 'topCenter',text: '<%= flash[:error]%>'}).show();
+<%else%>
+    $('#viewport').append('<%= j render partial: "address-card",locals: {addr: @address}%>');
+    $('#viewport').append('<br>');
+    new Noty({theme:'metroui', timeout: 1000, type: 'success',layout: 'topCenter',text: '<%= flash[:success]%>'}).show();
+    $('#formport').html("");
+<%end%>
