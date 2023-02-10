@@ -7,6 +7,7 @@
     "@rails/ujs": "^7.0.4-2",
     "@rails/webpacker": "^5.4.3",
     "bootstrap": "^5.2.3",
+    "cocoon": "github:nathanvda/cocoon#c24ba53",
     "jquery": "^3.6.3",
     "noty": "^3.2.0-beta-deprecated",
     "rails_admin": "3.1.1",
