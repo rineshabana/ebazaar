@@ -14,7 +14,9 @@
     <div class="container py-3">
       <%= render "shared/nav"%>
       <main>
-      <%= yield %>
+        <div id='viewport'>
+          <%= yield %>
+        </div>
       </main>
       <%= render "shared/footer"%>
     </div>

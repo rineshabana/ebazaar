@@ -9,7 +9,7 @@ RSpec.describe 'UserAddresses', type: :request do
   end
   describe 'GET /index' do
     it 'returns http success' do
-      get '/user_address/index'
+      get '/user_address/index', xhr: true
       expect(response).to have_http_status(:success)
     end
   end
