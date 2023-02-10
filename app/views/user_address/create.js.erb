@@ -4,5 +4,5 @@
     $('#viewport').append('<%= j render partial: "address-card",locals: {addr: @address}%>');
     $('#viewport').append('<br>');
     new Noty({theme:'metroui', timeout: 1000, type: 'success',layout: 'topCenter',text: '<%= flash[:success]%>'}).show();
-    $('#formport').html("");
+   closeForm();
 <%end%>

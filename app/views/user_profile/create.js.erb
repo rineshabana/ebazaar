@@ -1,3 +1,3 @@
 new Noty({theme:'metroui', timeout: 1000, type: 'success',layout: 'topCenter',text: '<%= flash[:notice]%>'}).show();
-$('#formport').html("");
+closeForm();
 $('#viewport').html("<%= j render partial:'show'%>")
