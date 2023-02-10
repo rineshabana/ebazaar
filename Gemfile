@@ -1,14 +1,16 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
+gem 'rails', '~> 6.1'
+
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 6.0', '>= 6.0.2'
+gem 'webpacker', '~> 5.4', '>= 5.4.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,8 +41,6 @@ gem 'rubocop'
 gem 'rubocop-rails'
 gem 'overcommit'
 gem 'devise', '~> 4.8', '>= 4.8.1'
-gem 'bootstrap', '~> 4.6', '>= 4.6.2'
-gem 'jquery-rails'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 
 group :development, :test do
