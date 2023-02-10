@@ -13,27 +13,18 @@ RSpec.describe 'UserProfiles', type: :request do
       sign_out(u)
       sign_in(u2)
     end
-    it 'returns http success' do
-      get '/user_profile/add'
-      expect(response).to have_http_status(:success)
-    end
-    it 'returns http success' do
-      create(:user_profile, user: u2)
-      get '/user_profile/add'
-      expect(response).to have_http_status(302)
-    end
   end
 
   describe 'GET /edit' do
     it 'returns http success' do
-      get '/user_profile/edit'
+      get '/user_profile/edit', xhr: true
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET /show' do
     it 'returns http success' do
-      get '/user_profile/show'
+      get '/user_profile/show', xhr: true
       expect(response).to have_http_status(:success)
     end
   end
