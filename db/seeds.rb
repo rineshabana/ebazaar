@@ -18,3 +18,7 @@ user_profile.user_addresses.create(address_line1: 'Line 1', address_line2: 'Line
                                    city: 'City', state: 'State', pincode: '400241', country_code: '+91', contact_number: '1234567890')
 
 puts 'Address Created'
+
+product = Product.create(name:'Apple', price: 200)
+
+puts 'Product Created'
