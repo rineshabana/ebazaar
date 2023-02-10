@@ -1,11 +1,9 @@
 <%= link_to 'Create New Address', user_address_new_path, class: 'btn btn-primary w-100'%><br>
 <br>
-<div class="row">
-    <% @addresses.each_with_index do |address, idx| %>
-        <div class="col-md-6">
+    <% @addresses.each do |address| %>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"><%= address_number(idx)%></h4>
+                    <h4 class="card-title"><%= "Address for #{address.city}" %></h4>
                     <p class="card-text">Address Line 1 : <%= address.address_line1%></p>
                     <p class="card-text">Address Line 2 : <%= address.address_line2%></p>
                     <p class="card-text">Address Line 3 : <%= address.address_line3%></p>
@@ -18,7 +16,4 @@
                 </div>
             </div>
             <br>
-        </div>
-    
     <% end %>
-</div>
