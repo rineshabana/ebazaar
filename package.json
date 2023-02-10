@@ -7,6 +7,7 @@
     "@rails/ujs": "^7.0.4-2",
     "@rails/webpacker": "^5.4.3",
     "bootstrap": "^5.2.3",
+    "jquery": "^3.6.3",
     "noty": "^3.2.0-beta-deprecated",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",

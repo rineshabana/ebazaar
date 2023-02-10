@@ -4,6 +4,7 @@ class UserAddressController < ApplicationController
 
   def index
     @addresses = current_user.user_addresses
+    flash[:notice] = t('profile.create.message') if current_user.user_profile.nil?
   end
 
   def new
@@ -15,19 +16,25 @@ class UserAddressController < ApplicationController
   def create
     @address = UserAddress.new(address_params)
     @address.user_profile = current_user.user_profile
-    raise unless @address.save
-
-    redirect_to user_address_index_path
+    if @address.save
+      flash[:success] = t('address.create.success')
+    else
+      flash[:error] = t('address.create.failure')
+    end
   end
 
   def update
-    @address = UserAddress.update(address_params)
-    redirect_to user_address_index_path
+    @address = current_user.user_addresses.find(params[:user_address][:id])
+    if @address.update(address_params)
+      flash[:success] = t('address.update.success')
+    else
+      flash[:error] = t('address.update.failure')
+    end
   end
 
   def destroy
     @address.destroy
-    redirect_to user_address_index_path
+    flash.now[:success] = t('address.delete')
   end
 
   private

@@ -9,16 +9,20 @@
   </head>
 
   <body>
-
-
+  <script>
+    function closeForm(){
+      $('#formport').html('');
+    }
+  </script>
     <div class="container py-3">
       <%= render "shared/nav"%>
       <main>
-      <%= yield %>
+        <div id="formport"></div>
+        <div id='viewport'>
+          <%= yield %>
+        </div>
       </main>
       <%= render "shared/footer"%>
-    </div>
-
-  
+    </div> 
   </body>
 </html>

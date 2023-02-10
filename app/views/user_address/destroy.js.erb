@@ -1,0 +1,3 @@
+$('#address-<%= @address.id %>').next().remove();
+$('#address-<%= @address.id %>').remove();
+new Noty({theme:'metroui', timeout: 1000, type: 'success',layout: 'topCenter',text: '<%= flash[:success]%>'}).show();

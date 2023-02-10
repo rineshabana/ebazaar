@@ -1,0 +1,8 @@
+<%if flash[:error]%>
+    new Noty({theme:'metroui', timeout: 1000, type: 'error',layout: 'topCenter',text: '<%= flash[:error]%>'}).show();
+    closeForm();
+<%else%>
+    $('#address-<%= @address.id %>').html('<%= j render partial: "address-card",locals: {addr: @address}%>');
+    new Noty({theme:'metroui', timeout: 1000, type: 'success',layout: 'topCenter',text: '<%= flash[:success]%>'}).show();
+    closeForm();
+<%end%>

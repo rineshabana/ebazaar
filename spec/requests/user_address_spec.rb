@@ -9,14 +9,14 @@ RSpec.describe 'UserAddresses', type: :request do
   end
   describe 'GET /index' do
     it 'returns http success' do
-      get '/user_address/index'
+      get '/user_address/index', xhr: true
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET /new' do
     it 'returns http success' do
-      get '/user_address/new'
+      get '/user_address/new', xhr: true
       expect(response).to have_http_status(:success)
     end
   end
@@ -26,8 +26,8 @@ RSpec.describe 'UserAddresses', type: :request do
       post user_address_create_path, params: { user_address: { address_line1: 'Line 1', address_line2: 'Line 2',
                                                                address_line3: 'Line 3', city: 'City', state: 'State',
                                                                pincode: '400241', country_code: '+91',
-                                                               contact_number: '1234567890' } }
-      expect(response).to have_http_status(:redirect)
+                                                               contact_number: '1234567890' } }, xhr: true
+      expect(response).to have_http_status(:success)
     end
   end
 
@@ -37,7 +37,7 @@ RSpec.describe 'UserAddresses', type: :request do
     end
     describe 'GET /edit' do
       it 'returns http success' do
-        get edit_user_address_path(@address.id)
+        get edit_user_address_path(@address.id), xhr: true
 
         expect(response).to have_http_status(:success)
       end
@@ -45,18 +45,19 @@ RSpec.describe 'UserAddresses', type: :request do
 
     describe 'PATCH /update' do
       it 'returns http success' do
-        patch user_address_update_path, params: { user_address: { address_line1: 'Line 1', address_line2: 'Line 2',
+        patch user_address_update_path, params: { user_address: { id: @address.id, address_line1: 'Line 1',
+                                                                  address_line2: 'Line 2',
                                                                   address_line3: 'Line 3', city: 'City', state: 'State',
                                                                   pincode: '400241', country_code: '+91',
-                                                                  contact_number: '1234567890' } }
-        expect(response).to have_http_status(:redirect)
+                                                                  contact_number: '1234567890' } }, xhr: true
+        expect(response).to have_http_status(:success)
       end
     end
 
     describe 'DELETE /destroy' do
       it 'returns http success' do
-        delete "/user_address/#{@address.id}/destroy"
-        expect(response).to have_http_status(:redirect)
+        delete "/user_address/#{@address.id}/destroy", xhr: true
+        expect(response).to have_http_status(:success)
       end
     end
   end

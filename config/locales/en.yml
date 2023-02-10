@@ -31,3 +31,20 @@
 
 en:
   hello: "Hello world"
+  profile: 
+    create: 
+      message: 'Please Create Your Profile first'
+      success: 'Profile Created'
+      failure: 'Profile creation failed'
+    update:
+      success: 'Profile Updated Successfully'
+      failure: 'Profile Updation Failed'
+  address:
+    create:
+      success: 'Address Created Successfully'
+      failure: 'Address Creation Failed'
+    update: 
+      success: 'Address Updated Successfully'
+      failure: 'Address Updation Failed'
+    delete: 'Address Deleted '
+
