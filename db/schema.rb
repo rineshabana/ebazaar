@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2023_02_09_194601) do
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "name"
-    t.decimal "price", precision: 10
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "products", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 10
