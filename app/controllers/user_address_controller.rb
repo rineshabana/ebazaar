@@ -4,10 +4,6 @@ class UserAddressController < ApplicationController
   before_action :find_address, only: %i[edit destroy]
 
   def index
-    if current_user.user_profile.nil?
-      render js: 'Please create your profile'
-      return
-    end
     @addresses = current_user.user_addresses
     flash[:notice] = t('profile.create.message') if current_user.user_profile.nil?
   end
