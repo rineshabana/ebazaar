@@ -1,1 +1,4 @@
 $("#formport").html("<%= j render partial: 'edit'%>");
+$('html, body').animate({
+        scrollTop: $("#formport").offset().top
+    }, 500);

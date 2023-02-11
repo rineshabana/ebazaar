@@ -1,0 +1,13 @@
+<script>
+    $("#formCloseBtn").click(function(event){
+        event.preventDefault();
+        $('#formport').animate({'opacity': 0}, 400, function(){
+            $(this).html('').animate({'opacity': 1}, 400);    
+        });
+    });
+    $("#formSubmitBtn").click(function(event){
+        $('#formport').animate({'opacity': 0}, 400, function(){
+            $(this).html('').animate({'opacity': 1}, 400);    
+        });
+    });
+</script>

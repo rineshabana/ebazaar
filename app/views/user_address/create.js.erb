@@ -5,4 +5,7 @@
     $('#viewport').append('<br>');
     new Noty({theme:'metroui', timeout: 1000, type: 'success',layout: 'topCenter',text: '<%= flash[:success]%>'}).show();
    closeForm();
+   $('html, body').animate({
+        scrollTop: $("#address-<%= @address.id %>").offset().top
+    }, 500);
 <%end%>
