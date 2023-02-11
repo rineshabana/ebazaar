@@ -29,7 +29,7 @@ class UserAddressController < ApplicationController
   end
 
   def update
-    @address = current_user.user_addresses.find(params[:user_address][:id])
+    @address = current_user.user_addresses.find(params[:id])
     if @address.update(address_params)
       flash[:success] = t('address.update.success')
     else
