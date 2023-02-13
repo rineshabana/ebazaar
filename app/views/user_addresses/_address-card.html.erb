@@ -9,6 +9,6 @@
         <p class="card-text">Pin Code : <%= addr.pincode%></p>
         <p class="card-text">Contact Number : <%= show_contact_no(addr)%></p>
         <%= link_to "Edit", edit_user_address_path(id: addr.id), class: "btn btn-warning" ,remote:true%>
-        <%= link_to "Delete", destroy_user_address_path(id: addr.id), class: "btn btn-danger", method: :delete, remote: true %>
+        <%= link_to "Delete", user_address_path(id: addr.id), class: "btn btn-danger", method: :delete, remote: true %>
     </div>
 </div>

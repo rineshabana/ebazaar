@@ -1,4 +1,4 @@
-class UserAddressController < ApplicationController
+class UserAddressesController < ApplicationController
   protect_from_forgery except: :index
   before_action :authenticate_user!
   before_action :find_address, only: %i[edit destroy]

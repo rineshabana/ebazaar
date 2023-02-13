@@ -1,5 +1,5 @@
 <%= render 'shared/form_helper'%>
-<%= form_for(obj,:url => url_for(routing), remote: true) do |f| %>
+<%= form_for(@address, remote: true) do |f| %>
     <div class='row'>
         <div class='col-md-6'>
             <div class="mb-3">

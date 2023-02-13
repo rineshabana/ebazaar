@@ -1,4 +1,4 @@
-<%= link_to 'Create New Address', user_address_new_path, class: 'btn btn-primary w-100', remote: true%><br>
+<%= link_to 'Create New Address', new_user_address_path, class: 'btn btn-primary w-100', remote: true%><br>
 <br>
 <% addresses.each do |address| %>
         <%= render partial: 'address-card', locals:{addr:address}%>

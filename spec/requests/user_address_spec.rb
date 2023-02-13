@@ -9,21 +9,21 @@ RSpec.describe 'UserAddresses', type: :request do
   end
   describe 'GET /index' do
     it 'returns http success' do
-      get '/user_address/index', xhr: true
+      get '/user_addresses', xhr: true
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET /new' do
     it 'returns http success' do
-      get '/user_address/new', xhr: true
+      get '/user_addresses/new', xhr: true
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'POST /create' do
     it 'returns http success' do
-      post user_address_create_path, params: { user_address: { address_line1: 'Line 1', address_line2: 'Line 2',
+      post user_addresses_path, params: { user_address: { address_line1: 'Line 1', address_line2: 'Line 2',
                                                                address_line3: 'Line 3', city: 'City', state: 'State',
                                                                pincode: '400241', country_code: '+91',
                                                                contact_number: '1234567890' } }, xhr: true
@@ -45,7 +45,7 @@ RSpec.describe 'UserAddresses', type: :request do
 
     describe 'PATCH /update' do
       it 'returns http success' do
-        patch user_address_update_path, params: { user_address: { id: @address.id, address_line1: 'Line 1',
+        patch user_address_path(@address.id), params: { user_address: { address_line1: 'Line 1',
                                                                   address_line2: 'Line 2',
                                                                   address_line3: 'Line 3', city: 'City', state: 'State',
                                                                   pincode: '400241', country_code: '+91',
@@ -56,7 +56,7 @@ RSpec.describe 'UserAddresses', type: :request do
 
     describe 'DELETE /destroy' do
       it 'returns http success' do
-        delete "/user_address/#{@address.id}/destroy", xhr: true
+        delete user_address_path(@address.id), xhr: true
         expect(response).to have_http_status(:success)
       end
     end
