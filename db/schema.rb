@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_09_194601) do
+ActiveRecord::Schema.define(version: 2023_02_14_172458) do
+
+  create_table "product_features", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_features_on_product_id"
+  end
+
+  create_table "product_identifiers", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.string "value"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_identifiers_on_product_id"
+  end
 
   create_table "products", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
@@ -61,10 +78,13 @@ ActiveRecord::Schema.define(version: 2023_02_09_194601) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "roles"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "product_features", "products"
+  add_foreign_key "product_identifiers", "products"
   add_foreign_key "user_addresses", "user_profiles"
   add_foreign_key "user_profiles", "users"
 end
