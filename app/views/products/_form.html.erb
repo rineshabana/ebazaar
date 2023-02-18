@@ -1,3 +1,4 @@
+<%= render 'shared/form_helper'%>
 <%= form_for(@product, remote: true) do |f| %>
     <div class="mb-3">
         <%= f.label :name %>
@@ -30,8 +31,8 @@
     </div>
     
     <div class="mb-3">
-        <%= f.submit "Sumbit", class:'btn btn-primary' %>
-        <button class="btn btn-danger" onClick='closeForm()'>Cancel</button>
+        <%= f.submit "Sumbit", class:'btn btn-primary',id: 'formSubmitBtn' %>
+        <button class="btn btn-danger" id='formCloseBtn'>Cancel</button>
     </div>
 
 <% end %>

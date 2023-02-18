@@ -1,9 +1,9 @@
-closeForm();
+
 <%if @create == true%>
     new Noty({theme:'metroui', timeout: 1000, type: 'error',layout: 'topCenter',text: '<%= flash[:notice]%>'}).show();
     $('#viewport').html("");
     $('#formport').html("<%= j render partial: 'form', locals: { obj: @profile, routing: user_profile_path }%>")
 <%else%>
-    closeForm();
+
     $('#viewport').html("<%= j render partial:'show'%>")
 <%end%>
