@@ -1,4 +1,4 @@
-class UserProfileController < ApplicationController
+class UserProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :user_profile, only: %i[edit show]
   def show
