@@ -6,4 +6,5 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 0 }
   accepts_nested_attributes_for :product_features
   accepts_nested_attributes_for :product_identifiers
+  has_one_attached :image, dependent: :destroy
 end

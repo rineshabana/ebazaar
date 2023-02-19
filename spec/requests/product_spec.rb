@@ -1,58 +1,57 @@
 require 'rails_helper'
-
-RSpec.describe "Products", type: :request do
+# rubocop:disable Metrics/BlockLength
+RSpec.describe 'Products', type: :request do
   let(:u) { create(:user) }
   before do
     sign_in(u)
   end
-  
-  describe "GET /index" do
-    it "returns http success" do
-      get "/products/index" , xhr: true
+
+  describe 'GET /index' do
+    it 'returns http success' do
+      get products_path, xhr: true
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /new" do
-    it "returns http success" do
-      get "/products/new" , xhr: true
+  describe 'GET /new' do
+    it 'returns http success' do
+      get new_product_path, xhr: true
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /create" do
-    it "returns http success" do
-      get "/products/create", xhr: true
+  describe 'GET /create' do
+    it 'returns http success' do
+      file = fixture_file_upload('spec/factories/images/test_image.jpeg')
+      post products_path, params: { product: { name: 'Name', price: 'Price', image: file } }, xhr: true
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /edit" do
-    it "returns http success" do
-      get "/products/edit", xhr: true
+  describe 'GET /edit' do
+    it 'returns http success' do
+      prod = create(:product)
+      get edit_product_path(prod.id), xhr: true
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /update" do
-    it "returns http success" do
-      get "/products/update", xhr: true
+  describe 'GET /update' do
+    it 'returns http success' do
+      prod = create(:product)
+      patch product_path(prod.id), xhr: true
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /destroy" do
-    it "returns http success" do
-      get "/products/destroy", xhr: true
+  describe 'GET /show' do
+    it 'returns http success' do
+      prod = create(:product)
+      prod.image.attach(io: File.open('spec/factories/images/test_image.jpeg'), filename: 'test_image.jpeg',
+                        content_type: 'image/jpeg')
+      get product_path(prod.id), xhr: true
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe "GET /show" do
-    it "returns http success" do
-      get "/products/show", xhr: true
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end
+# rubocop:enable Metrics/BlockLength
