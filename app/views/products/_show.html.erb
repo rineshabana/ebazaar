@@ -3,9 +3,7 @@
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6">
-                        <% unless @product.image.nil? %>
-                            <%= image_tag @product.image.variant(resize: '600x700')%>    
-                        <% end %>
+                        <%= render 'product_carousel'%>
                     </div>
                     <div class="col-md-6">
                         <% @product.product_identifiers.each do |pi|%>

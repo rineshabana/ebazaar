@@ -7,4 +7,5 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_features
   accepts_nested_attributes_for :product_identifiers
   has_one_attached :image, dependent: :destroy
+  has_many_attached :support_images, dependent: :destroy
 end
