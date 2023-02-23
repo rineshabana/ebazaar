@@ -1,9 +1,9 @@
-<div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+<div id="productCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <%=image_tag @product.image.variant(resize: '600x700'), class: "d-block w-100"%>
     </div>
-    <% @product.support_images.uniq{|x| x.blob.filename.to_s }.each do |img|%>
+    <% @product.support_images.each do |img|%>
        <div class="carousel-item">
           <%=image_tag img.variant(resize: '600x700'), class: "d-block w-100"%>
         </div>

@@ -9,14 +9,15 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    init_form_data
   end
 
   def edit; end
 
   def create
-    @product = Product.new(product_params)
-    @product.image.attach(product_params[:image])
-    @product.support_images.attach(product_params[:support_images])
+    params_h = product_params
+    params_h[:categories] = distinct_categories(params_h[:categories])
+    @product = Product.new(params_h)
     @product.save
   end
 
@@ -26,12 +27,21 @@ class ProductsController < ApplicationController
 
   private
 
+  def distinct_categories(categories)
+    Category.where(id: categories.reject { |x| x == '' }.map(&:to_i))
+  end
+
+  def init_form_data
+    @categories = Category.all
+  end
+
   def set_product
     @product = Product.find(params[:id])
   end
 
   def product_params
     params.require(:product).permit(:name, :price, :image, support_images:                 [],
+                                                           categories:                     [],
                                                            product_features_attributes:    %i[id name _destroy],
                                                            product_identifiers_attributes: %i[id name value _destroy])
   end

@@ -11,6 +11,15 @@
     </div>
 
     <div class="mb-3">
+        <%= f.label :categories%>
+        <%= f.collection_check_boxes(:categories, @categories, :id, :name, class: 'form-check') do |b|%>
+            <%= b.label(class: "form-check-label") do %>
+                <%= "&nbsp;".html_safe + b.check_box(class: "form-check-input") + b.text + "&nbsp;".html_safe %>
+            <%end%>
+        <%end%>
+    </div>
+
+    <div class="mb-3">
         <%= f.label :main_image %>
         <%= f.file_field :image, multiple: false, class:'form-control' %>
     </div>
