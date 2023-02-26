@@ -26,6 +26,9 @@
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
                             </button>
+                            <% if logged_in?(:seller)%>
+                                <%= link_to "Edit Product", edit_product_path(@product.id),class:"btn btn-outline-dark flex-shrink-0", remote: true%>
+                            <% end %>
                         </div>
                     </div>
                 </div>

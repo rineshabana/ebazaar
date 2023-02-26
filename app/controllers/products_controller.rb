@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: %i[show edit]
+  before_action :init_form_data, only: %i[new edit]
+
   def index
     @products = Product.eager_load(:product_features, :product_identifiers)
   end
@@ -9,27 +11,24 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    init_form_data
   end
 
   def edit; end
 
   def create
-    params_h = product_params
-    params_h[:categories] = distinct_categories(params_h[:categories])
-    @product = Product.new(params_h)
+    @product = Product.new(product_params)
     @product.save
   end
 
-  def update; end
+  def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    ActiveStorage::Blob.unattached.each(&:purge_later)
+  end
 
   def destroy; end
 
   private
-
-  def distinct_categories(categories)
-    Category.where(id: categories.reject { |x| x == '' }.map(&:to_i))
-  end
 
   def init_form_data
     @categories = Category.all
@@ -41,7 +40,7 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :price, :image, support_images:                 [],
-                                                           categories:                     [],
+                                                           category_ids:                   [],
                                                            product_features_attributes:    %i[id name _destroy],
                                                            product_identifiers_attributes: %i[id name value _destroy])
   end

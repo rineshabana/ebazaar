@@ -40,7 +40,9 @@ RSpec.describe 'Products', type: :request do
   describe 'GET /update' do
     it 'returns http success' do
       prod = create(:product)
-      patch product_path(prod.id), xhr: true
+      file = fixture_file_upload('spec/factories/images/test_image.jpeg')
+      put product_path(prod.id), params: { product: { name: 'Name', price: 'Price', image: file, categories: [''] } },
+                                 xhr:    true
       expect(response).to have_http_status(:success)
     end
   end

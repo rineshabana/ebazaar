@@ -12,7 +12,7 @@
 
     <div class="mb-3">
         <%= f.label :categories%>
-        <%= f.collection_check_boxes(:categories, @categories, :id, :name, class: 'form-check') do |b|%>
+        <%= f.collection_check_boxes(:category_ids, @categories, :id, :name, class: 'form-check') do |b|%>
             <%= b.label(class: "form-check-label") do %>
                 <%= "&nbsp;".html_safe + b.check_box(class: "form-check-input") + b.text + "&nbsp;".html_safe %>
             <%end%>
