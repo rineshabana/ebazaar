@@ -22,3 +22,24 @@ puts 'Address Created'
 product = Product.create(name:'Apple', price: 200)
 
 puts 'Product Created'
+
+product_features = []
+
+product_features << ProductFeature.create(product: product, name: "Boom")
+
+product_features << ProductFeature.create(product: product, name: "Bazzinga")
+
+puts 'ProductFeature Created'
+
+product_identifiers = []
+
+product_identifiers << ProductIdentifier.create(product: product, name: "Serial Number", value: "1123FDDE23A")
+
+product_identifiers << ProductIdentifier.create(product: product, name: "ISIN", value: "44334433SDDED22332")
+
+puts 'ProductIdentifier Created'
+
+
+c = Category.create(name:"Electronics")
+
+c.products << p

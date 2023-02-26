@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white">
+<div class="container-fluid p-0"> 
+<% unless logged_in?(:seller) %>
+<a class="navbar-brand text-uppercase fw-800" href="#">
+    <span class="border-red pe-2">New Product</span>
+</a>
+<% else %>
+    <% span_message = '<span class="border-red pe-2">Create Product</span>'.html_safe %>
+    <%= link_to span_message, new_product_path,class:"navbar-brand text-uppercase fw-800", remote: true%>
+</a>
+<% end %>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation"> 
+<span class="fas fa-bars"></span> </button>
+    <div class="collapse navbar-collapse" id="myNav">
+        <div class="navbar-nav ms-auto"> <a class="nav-link active" aria-current="page" href="#">All</a> <a class="nav-link" href="#">Women's</a> <a class="nav-link" href="#">Men's</a> <a class="nav-link" href="#">Kid's</a> <a class="nav-link" href="#">Accessories</a> <a class="nav-link" href="#">Cosmetics</a> </div>
+    </div>
+</div>
+</nav>

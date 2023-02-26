@@ -1,0 +1,57 @@
+<%= render 'shared/form_helper'%>
+<%= form_for(@product, remote: true) do |f| %>
+    <div class="mb-3">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:'form-control' %>
+    </div>
+
+    <div class="mb-3">
+        <%= f.label :price %>
+        <%= f.number_field :price, step: :any, class:'form-control' %>
+    </div>
+
+    <div class="mb-3">
+        <%= f.label :categories%>
+        <%= f.collection_check_boxes(:category_ids, @categories, :id, :name, class: 'form-check') do |b|%>
+            <%= b.label(class: "form-check-label") do %>
+                <%= "&nbsp;".html_safe + b.check_box(class: "form-check-input") + b.text + "&nbsp;".html_safe %>
+            <%end%>
+        <%end%>
+    </div>
+
+    <div class="mb-3">
+        <%= f.label :main_image %>
+        <%= f.file_field :image, multiple: false, class:'form-control' %>
+    </div>
+
+    <div class="mb-3">
+        <%= f.label :support_images %>
+        <%= f.file_field :support_images, multiple: true, class:'form-control' %>
+    </div>
+
+    <div class="mb-3">
+        <%= f.fields_for :product_features do |t| %>
+            <%= render "product_feature_fields", :f => t %>
+        <% end %>
+        
+        <div class="mb-3">
+            <%= link_to_add_association "Add Feature", f, :product_features %>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <%= f.fields_for :product_identifiers do |t| %>
+            <%= render "product_identifier_fields", :f => t %>
+        <% end %>
+        
+        <div class="mb-3">
+            <%= link_to_add_association "Add Identifiers", f, :product_identifiers %>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <%= f.submit "Sumbit", class:'btn btn-primary',id: 'formSubmitBtn' %>
+        <button class="btn btn-danger" id='formCloseBtn'>Cancel</button>
+    </div>
+
+<% end %>

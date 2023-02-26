@@ -24,3 +24,4 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 window.Noty = require('noty');
+import "cocoon";

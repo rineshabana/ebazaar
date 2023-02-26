@@ -1,0 +1,9 @@
+<%= render 'product_style'%>
+<div class="bg-white">
+ <%= render "shared/product_nav" %>
+    <div class="row">
+        <%@products.each do |product|%>
+            <%= render partial:'product_listing', locals: {prod: product}%>
+        <%end%>
+    </div>
+</div>

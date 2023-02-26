@@ -1,0 +1,9 @@
+<div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+    <div class="product">
+        <%= link_to image_tag(prod.image.variant(resize: '500x500')), product_path(prod.id), remote: true%>
+    </div>
+    <div class="tag bg-red">sale</div>
+    <div class="title pt-4 pb-1"><%= prod.name %></div>
+    <div class="d-flex align-content-center justify-content-center"> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> </div>
+    <div class="price">₹ <%= prod.price%></div>
+</div>
