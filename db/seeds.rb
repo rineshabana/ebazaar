@@ -39,7 +39,7 @@ puts 'Category Created'
 15.times do
     data = get_new_image
     purge_later << data
-    product = Product.new(name:Faker::Commerce.product_name, price: Faker::Commerce.price)
+    product = Product.new(name:Faker::Commerce.product_name, price: Faker::Commerce.price(range: 2000.00..10000.0, as_string: false))
     product.image.attach(io: File.open(data.last), filename: data.first , content_type: 'application/jpg')
     2.times do 
         data = get_new_image
