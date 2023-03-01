@@ -1,6 +1,6 @@
 <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
     <div class="product">
-        <%= link_to image_tag(prod.image.variant(resize: '500x500')), product_path(prod.id), remote: true%>
+        <%= link_to image_tag(prod.image.variant(resize_and_pad: [500, 500, gravity: 'center', background: '#000'])), product_path(prod.id), remote: true%>
     </div>
     <div class="tag bg-red">sale</div>
     <div class="title pt-4 pb-1"><%= prod.name %></div>

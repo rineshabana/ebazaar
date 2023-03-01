@@ -4,7 +4,14 @@ class ProductsController < ApplicationController
   before_action :init_form_data, only: %i[new edit]
 
   def index
-    @products = Product.eager_load(:product_features, :product_identifiers)
+    @nav = nil
+    if params[:cat_id].nil?
+      @products = Product.eager_load(:product_features, :product_identifiers)
+    else
+      category = Category.find(params[:cat_id])
+      @products = category.products.eager_load(:product_features, :product_identifiers)
+      @nav = "nav-#{category.id}"
+    end
   end
 
   def show; end

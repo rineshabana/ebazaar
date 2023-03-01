@@ -1,1 +1,9 @@
-$('#viewport').html('<%= j render partial: "index"%>')
+
+$('#viewport').html('<%= j render partial: "index"%>');
+
+<%unless @nav.nil?%>
+$('#nav-all').removeClass("active");
+$('#<%=@nav%>').addClass("active");
+<%else%>
+$('#nav-all').addClass("active");
+<%end%>
