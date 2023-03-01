@@ -45,7 +45,8 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 gem 'petergate', '~> 1.6', '>= 1.6.3'
 gem 'rails_admin', '~> 3.1', '>= 3.1.1'
-
+gem 'faker', '~> 3.1', '>= 3.1.1'
+gem 'httparty', '~> 0.21.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
