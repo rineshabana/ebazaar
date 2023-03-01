@@ -2,8 +2,7 @@
 $('#viewport').html('<%= j render partial: "index"%>');
 
 <%unless @nav.nil?%>
-$('#nav-all').removeClass("active");
-$('#<%=@nav%>').addClass("active");
+$('#<%=@nav%>').addClass('active').siblings().removeClass('active');
 <%else%>
-$('#nav-all').addClass("active");
+$('#nav-all').addClass('active').siblings().removeClass('active');
 <%end%>

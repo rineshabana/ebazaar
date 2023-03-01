@@ -3,3 +3,4 @@
 <%else%>
     $('#viewport').html('<%= j render partial: "index",locals: {addresses: @addresses}%>');
 <%end%>
+$('#nav-all').removeClass('active').siblings().removeClass('active');
