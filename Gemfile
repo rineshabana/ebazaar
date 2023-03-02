@@ -47,6 +47,7 @@ gem 'petergate', '~> 1.6', '>= 1.6.3'
 gem 'rails_admin', '~> 3.1', '>= 3.1.1'
 gem 'faker', '~> 3.1', '>= 3.1.1'
 gem 'httparty', '~> 0.21.0'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

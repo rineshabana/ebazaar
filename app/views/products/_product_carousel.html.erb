@@ -1,11 +1,11 @@
 <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%=image_tag @product.image.variant(resize: '600x700'), class: "d-block w-100"%>
+      <%=image_tag @product.image.variant(resize_and_pad: [500, 500, gravity: 'center', background: '#fff']), class: "d-block w-100"%>
     </div>
     <% @product.support_images.each do |img|%>
        <div class="carousel-item">
-          <%=image_tag img.variant(resize: '600x700'), class: "d-block w-100"%>
+          <%=image_tag img.variant(resize_and_pad: [500, 500, gravity: 'center', background: '#fff']), class: "d-block w-100"%>
         </div>
     <% end %>
    

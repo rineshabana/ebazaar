@@ -33,10 +33,11 @@ user_profile.user_addresses.create!(address_line1: 'Line 1', address_line2: 'Lin
                                    city: 'City', state: 'State', pincode: '400241', country_code: '+91', contact_number: '1234567890')
 
 puts 'Address Created'
-categories = Category.create!([{name:"Electronics"},{name:"HealthCare"},{name: "Sports"}])
+categories = Category.create!([{name:"Electronics"},{name:"HealthCare"},{name: "Sports"},{name:"Gaming"},{name: "Education"}])
 
 puts 'Category Created'
-15.times do
+
+16.times do
     data = get_new_image
     purge_later << data
     product = Product.new(name:Faker::Commerce.product_name, price: Faker::Commerce.price(range: 2000.00..10000.0, as_string: false))
@@ -46,7 +47,7 @@ puts 'Category Created'
         purge_later << data
         product.support_images.attach(io: File.open(data.last), filename: data.first , content_type: 'application/jpg')
     end
-    product.category_ids = categories.map(&:id)
+    product.category_ids = categories.sample(2).map(&:id)
     product.save!
     puts 'Product Created'
 

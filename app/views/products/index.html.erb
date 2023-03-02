@@ -1,1 +1,6 @@
+<%if flash[:notice]%>
+<script>
+new Noty({theme:'metroui', timeout: 1000, type: 'warning',layout: 'topCenter',text: '<%= flash[:notice]%>'}).show();
+</script>
+<%end%>
 <%= render partial: "index"%>

@@ -1,8 +1,9 @@
 require 'rails_helper'
 # rubocop:disable Metrics/BlockLength
 RSpec.describe 'Products', type: :request do
-  let(:u) { create(:user) }
+  let(:u) { create(:user, roles: [:seller, :user]) }
   before do
+    create(:category)
     sign_in(u)
   end
 
@@ -23,7 +24,7 @@ RSpec.describe 'Products', type: :request do
   describe 'GET /create' do
     it 'returns http success' do
       file = fixture_file_upload('spec/factories/images/test_image.jpeg')
-      post products_path, params: { product: { name: 'Name', price: 'Price', image: file, categories: [''] } },
+      post products_path, params: { product: { name: 'Name', price: 12, image: file, category_ids: [Category.last.id] } },
                           xhr:    true
       expect(response).to have_http_status(:success)
     end
@@ -41,7 +42,7 @@ RSpec.describe 'Products', type: :request do
     it 'returns http success' do
       prod = create(:product)
       file = fixture_file_upload('spec/factories/images/test_image.jpeg')
-      put product_path(prod.id), params: { product: { name: 'Name', price: 'Price', image: file, categories: [''] } },
+      put product_path(prod.id), params: { product: { name: 'Name', price: 12, image: file, category_ids: [Category.last.id] } },
                                  xhr:    true
       expect(response).to have_http_status(:success)
     end
