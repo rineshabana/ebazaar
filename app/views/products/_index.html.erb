@@ -2,10 +2,10 @@
 <div class="bg-white">
     <div class="row">
         <div class='col col-sm-6 text-start'>
-            <%= link_to_prev_page @products, '<i class="fa-solid fa-arrow-left"></i>'.html_safe, class:"btn btn-outline-secondary", remote: true %>
+            <%= link_to_prev_page @products, 'Previous'.html_safe, class:"btn btn-outline-secondary", remote: true %>
         </div>
         <div class='col col-sm-6 text-end'>
-            <%= link_to_next_page @products, '<i class="fa-solid fa-arrow-right"></i>'.html_safe, class:"btn btn-outline-secondary", remote: true %>
+            <%= link_to_next_page @products, 'Next'.html_safe, class:"btn btn-outline-secondary", remote: true %>
         </div>
         <%@products.each do |product|%>
             <%= render partial:'product_listing', locals: {prod: product}%>
