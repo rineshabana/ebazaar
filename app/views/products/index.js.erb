@@ -1,6 +1,6 @@
 
 $('#viewport').html('<%= j render partial: "index"%>');
-
+$('#formport').html('');
 <%unless @nav.nil?%>
 $('#<%=@nav%>').addClass('active').siblings().removeClass('active');
 <%else%>

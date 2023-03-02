@@ -2,16 +2,18 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_product, only: %i[show edit]
   before_action :init_form_data, only: %i[new edit]
+  access all: %i[show index], seller: { except: [:destroy] }, admin: :all
 
   def index
     @nav = nil
     if params[:cat_id].nil?
-      @products = Product.eager_load(:product_features, :product_identifiers)
+      products = Product
     else
       category = Category.find(params[:cat_id])
-      @products = category.products.eager_load(:product_features, :product_identifiers)
+      products = category.products
       @nav = "nav-#{category.id}"
     end
+    @products = products.eager_load(:product_features, :product_identifiers).page(params[:page]).per(8)
   end
 
   def show; end
