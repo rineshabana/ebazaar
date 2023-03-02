@@ -16,7 +16,10 @@ class ProductsController < ApplicationController
     @products = products.eager_load(:product_features, :product_identifiers).page(params[:page]).per(8)
   end
 
-  def show; end
+  def show
+    ids = @product.categories.map(&:product_ids).flatten - [@product.id]
+    @related = Product.where(id: ids.sample(4))
+  end
 
   def new
     @product = Product.new
