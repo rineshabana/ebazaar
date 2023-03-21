@@ -63,6 +63,18 @@ ActiveRecord::Schema.define(version: 2023_03_21_182136) do
     t.index ["product_id"], name: "index_categories_products_on_product_id"
   end
 
+  create_table "inventories", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.integer "quantity"
+    t.integer "minimum_quantity"
+    t.integer "maximum_quantity"
+    t.datetime "starts"
+    t.datetime "ends"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_inventories_on_product_id"
+  end
+
   create_table "product_features", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.bigint "product_id", null: false
@@ -134,8 +146,8 @@ ActiveRecord::Schema.define(version: 2023_03_21_182136) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "inventories", "products"
   add_foreign_key "product_features", "products"
   add_foreign_key "product_identifiers", "products"
   add_foreign_key "user_addresses", "user_profiles"
