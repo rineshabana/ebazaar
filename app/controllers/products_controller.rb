@@ -51,9 +51,9 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :price, :image, support_images:                 [],
-                                                           category_ids:                   [],
-                                                           product_features_attributes:    %i[id name _destroy],
-                                                           product_identifiers_attributes: %i[id name value _destroy])
+    params.require(:product).permit(:name, :price, :image, :content, support_images:                 [],
+                                                                     category_ids:                   [],
+                                                                     product_features_attributes:    %i[id name _destroy],
+                                                                     product_identifiers_attributes: %i[id name value _destroy])
   end
 end
