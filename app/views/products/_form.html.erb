@@ -6,6 +6,11 @@
     </div>
 
     <div class="mb-3">
+        <%= f.label :content %>
+        <%= f.rich_text_area :content, class:'form-control' %>
+    </div>
+
+    <div class="mb-3">
         <%= f.label :price %>
         <%= f.number_field :price, step: :any, class:'form-control' %>
     </div>

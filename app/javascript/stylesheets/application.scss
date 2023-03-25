@@ -2,7 +2,8 @@
 @import "~noty/src/noty.scss";
 @import "~noty/src/themes/metroui.scss";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
-
+@import "../../assets/stylesheets/actiontext.scss";
+.trix-button-group--file-tools { display: none !important; }
 * {
   padding: 0;
   margin: 0;

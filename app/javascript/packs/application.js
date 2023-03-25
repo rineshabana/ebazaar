@@ -20,9 +20,14 @@ import * as ActiveStorage from "@rails/activestorage"
 import 'bootstrap'
 import "@fortawesome/fontawesome-free/css/all.css";
 import '../stylesheets/application.scss'
-
+require("trix")
+require("@rails/actiontext")
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 window.Noty = require('noty');
 import "cocoon";
+window.addEventListener("trix-file-accept", function(event) {
+    event.preventDefault()
+    alert("File attachment not supported!")
+});

@@ -16,6 +16,7 @@
                             <span>₹<%= @product.price%></span>
                         </div>
                         <p class="lead">
+                            <%= @product.content%>
                             <% @product.product_features.each do |pf|%>
                                <%= pf.name%><br>
                             <% end %>
