@@ -18,4 +18,9 @@ class User < ApplicationRecord
   def roles=(v)
     self[:roles] = v.map(&:to_sym).to_a.select{|r| r.size > 0 && ROLES.include?(r)}
   end
+
+  def time_zone
+    @time_zone ||= user_profile.time_zone
+    @time_zone
+  end
 end

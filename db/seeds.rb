@@ -12,7 +12,8 @@ puts "Destroyed Existing Data"
 def get_new_image
     url = "https://picsum.photos/600/600"
     name = Faker::Name.first_name.downcase
-    file_name = "#{name}.jpg"
+    lname = Faker::Name.last_name.downcase
+    file_name = "#{name}_#{lname}.jpg"
     full_path = "/tmp/#{file_name}"
     File.open(full_path, "wb") do |f| 
         f.write HTTParty.get(url).body
@@ -50,7 +51,8 @@ puts 'Category Created'
     product.category_ids = categories.sample(2).map(&:id)
     product.save!
     puts 'Product Created'
-
+    inventory = Inventory.create(product: product, quantity: 100, maximum_quantity: 1000, minimum_quantity: 10, starts: DateTime.now, ends: DateTime.now + 1.year)
+    puts 'Inventory Created'
     product_features = []
     3.times do
         product_features << ProductFeature.create!(product: product, name: Faker::Quote.famous_last_words)

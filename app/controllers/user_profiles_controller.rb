@@ -35,6 +35,6 @@ class UserProfilesController < ApplicationController
 
   def profile_params
     params.require(:user_profile).permit(%i[first_name middle_name last_name dob gender country_code
-                                            contact_number])
+                                            contact_number, time_zone])
   end
 end

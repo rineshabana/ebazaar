@@ -37,6 +37,11 @@
                 <%= f.label :contact_number %>
                 <%= f.text_field :contact_number,class: "form-control" %>
             </div>
+            <div class="mb-3">
+                <%= f.label :time_zone %>
+                <%= f.time_zone_select :time_zone,  ActiveSupport::TimeZone.all, class: 'form-control' %>
+            </div>
+            
                 <%= f.submit "Sumbit", class: "btn btn-primary", id: 'formSubmitBtn'%>
                 <button class="btn btn-danger" id='formCloseBtn'>Cancel</button>
         </div>

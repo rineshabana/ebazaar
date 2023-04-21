@@ -1,0 +1,32 @@
+<h1>Listing Inventories</h1>
+
+
+<table class="table caption-top">
+  <caption>All the inventories for products</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Max Quantity</th>
+      <th scope="col">Min Quantity</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inventories.each.with_index(1) do |inventory, idx|%>
+        <tr>
+        <th scope="row"><%= idx%></th>
+        <td><%= inventory.product.name%></td>
+        <td><%= inventory.quantity%></td>
+        <td><%= inventory.maximum_quantity%></td>
+        <td><%= inventory.minimum_quantity%></td>
+        <td><%= time_zone_converter(inventory.starts)%></td>
+        <td><%= time_zone_converter(inventory.ends)%></td>
+        <td><%=%></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  has_many :inventories, dependent: :destroy
   has_many :product_features, dependent: :destroy
   has_many :product_identifiers, dependent: :destroy
   has_and_belongs_to_many :categories
